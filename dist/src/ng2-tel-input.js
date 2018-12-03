@@ -48,15 +48,15 @@ var Ng2TelInput = /** @class */ (function () {
     ];
     /** @nocollapse */
     Ng2TelInput.ctorParameters = function () { return [
-        { type: ElementRef }
+        { type: ElementRef, },
     ]; };
     Ng2TelInput.propDecorators = {
-        ng2TelInputOptions: [{ type: Input, args: ['ng2TelInputOptions',] }],
-        hasError: [{ type: Output, args: ['hasError',] }],
-        ng2TelOutput: [{ type: Output, args: ['ng2TelOutput',] }],
-        countryChange: [{ type: Output, args: ['countryChange',] }],
-        intlTelInputObject: [{ type: Output, args: ['intlTelInputObject',] }],
-        onKeyup: [{ type: HostListener, args: ['keyup',] }]
+        "ng2TelInputOptions": [{ type: Input, args: ['ng2TelInputOptions',] },],
+        "hasError": [{ type: Output, args: ['hasError',] },],
+        "ng2TelOutput": [{ type: Output, args: ['ng2TelOutput',] },],
+        "countryChange": [{ type: Output, args: ['countryChange',] },],
+        "intlTelInputObject": [{ type: Output, args: ['intlTelInputObject',] },],
+        "onKeyup": [{ type: HostListener, args: ['keyup',] },],
     };
     return Ng2TelInput;
 }());
