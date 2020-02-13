@@ -1,6 +1,6 @@
 {
   "name": "ng2-tel-input",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "description": "An Angular 2 wrapper for intl-tel-input library",
   "main": "./dist/ng2-tel-input.js",
   "scripts": {
@@ -41,7 +41,7 @@
     "@angular/core": "7.2.4.0"
   },
   "dependencies": {
-    "intl-tel-input": "^12.1.11",
+    "intl-tel-input": "15.1.2",
     "rxjs-compat": "^6.4.0"
   },
   "typings": "./ng2-tel-input.d.ts"
