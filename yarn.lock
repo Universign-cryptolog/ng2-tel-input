@@ -612,10 +612,10 @@ interpret@^1.0.0:
   resolved "http://artifactory.universign.eu:8081/artifactory/api/npm/npm-repo/interpret/-/interpret-1.2.0.tgz#d5061a6224be58e8083985f5014d844359576296"
   integrity sha1-1QYaYiS+WOgIOYX1AU2EQ1lXYpY=
 
-intl-tel-input@15.1.2:
-  version "15.1.2"
-  resolved "http://artifactory.universign.eu:8081/artifactory/api/npm/npm-repo/intl-tel-input/-/intl-tel-input-15.1.2.tgz#a673cf190a6eecad98790ed83d53d37dbc48ebf5"
-  integrity sha1-pnPPGQpu7K2YeQ7YPVPTfbxI6/U=
+intl-tel-input@^17.0.11:
+  version "17.0.11"
+  resolved "http://artifactory.universign.eu:8081/artifactory/api/npm/npm-repo/intl-tel-input/-/intl-tel-input-17.0.11.tgz#561ec520112bb1a3ceb753130716255f654c8465"
+  integrity sha1-Vh7FIBErsaPOt1MTBxYlX2VMhGU=
 
 invert-kv@^1.0.0:
   version "1.0.0"
