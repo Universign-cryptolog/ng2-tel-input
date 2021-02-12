@@ -8,7 +8,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 import { Directive, ElementRef, EventEmitter, HostListener, Input, Output } from '@angular/core';
-import * as $ from 'jquery';
 import 'intl-tel-input';
 import 'intl-tel-input/build/js/utils';
 var Ng2TelInput = /** @class */ (function () {
@@ -21,13 +20,9 @@ var Ng2TelInput = /** @class */ (function () {
     }
     Ng2TelInput.prototype.ngOnInit = function () {
         var _this = this;
-        this.ngTelInput = $(this.el.nativeElement);
-        if (this.ng2TelInputOptions) {
-            this.ngTelInput.intlTelInput(this.ng2TelInputOptions);
-        }
-        else {
-            this.ngTelInput.intlTelInput();
-        }
+        var options = this.ng2TelInputOptions ? this.ng2TelInputOptions : {};
+        /* eslint-disable */
+        this.ngTelInput = window.intlTelInput(this.el.nativeElement, options);
         this.ngTelInput.on("countrychange", function (e, countryData) {
             _this.countryChange.emit(countryData);
         });
@@ -36,7 +31,7 @@ var Ng2TelInput = /** @class */ (function () {
     Ng2TelInput.prototype.onKeyup = function () {
         var isInputValid = this.isInputValid();
         if (isInputValid) {
-            var telOutput = this.ngTelInput.intlTelInput("getNumber");
+            var telOutput = this.ngTelInput("getNumber");
             this.hasError.emit(isInputValid);
             this.ng2TelOutput.emit(telOutput);
         }
@@ -45,10 +40,10 @@ var Ng2TelInput = /** @class */ (function () {
         }
     };
     Ng2TelInput.prototype.isInputValid = function () {
-        return this.ngTelInput.intlTelInput('isValidNumber') ? true : false;
+        return this.ngTelInput('isValidNumber') ? true : false;
     };
     Ng2TelInput.prototype.setCountry = function (country) {
-        this.ngTelInput.intlTelInput('setCountry', country);
+        this.ngTelInput('setCountry', country);
     };
     __decorate([
         Input('ng2TelInputOptions'),

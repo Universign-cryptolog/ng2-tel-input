@@ -1,6 +1,5 @@
 import { Directive, ElementRef, EventEmitter,
     HostListener, Input, OnInit, Output } from '@angular/core';
-import * as $ from 'jquery';
 import 'intl-tel-input';
 import 'intl-tel-input/build/js/utils';
 
@@ -16,24 +15,19 @@ export class Ng2TelInput implements OnInit {
     ngTelInput: any;
     constructor (private el: ElementRef) {}
     ngOnInit() {
-        this.ngTelInput = $(this.el.nativeElement);
-        if(this.ng2TelInputOptions) {
-            this.ngTelInput.intlTelInput(this.ng2TelInputOptions);
-        }
-        else {
-            this.ngTelInput.intlTelInput();
-        }
-
+        const options = this.ng2TelInputOptions ? this.ng2TelInputOptions: {};
+        /* eslint-disable */
+        this.ngTelInput = (<any>window).intlTelInput(this.el.nativeElement, options);
         this.ngTelInput.on("countrychange", (e: any, countryData:any) => {
             this.countryChange.emit(countryData);
-          });
+        });
         this.intlTelInputObject.emit(this.ngTelInput);
     }
 
     @HostListener('keyup') onKeyup() {
         let isInputValid:boolean = this.isInputValid();
         if (isInputValid) {
-            let telOutput = this.ngTelInput.intlTelInput("getNumber");
+            let telOutput = this.ngTelInput("getNumber");
             this.hasError.emit(isInputValid);
             this.ng2TelOutput.emit(telOutput);
         } else
@@ -43,10 +37,10 @@ export class Ng2TelInput implements OnInit {
     }
 
     isInputValid(): boolean {
-        return this.ngTelInput.intlTelInput('isValidNumber') ? true : false;
+        return this.ngTelInput('isValidNumber') ? true : false;
     }
 
     setCountry(country: any) {
-        this.ngTelInput.intlTelInput('setCountry', country);
+        this.ngTelInput('setCountry', country);
     }
 }
